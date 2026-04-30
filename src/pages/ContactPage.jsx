@@ -54,7 +54,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-sm font-bold text-[#111c2d] mb-1">{info.title}</p>
                       {info.lines.map((l, i) => (
-                        <p key={i} className={`text-[#4d5b64] ${i === 1 && info.icon === 'call' ? 'text-sm italic font-medium text-[#ba1a1a] mt-1' : ''}`}>{l}</p>
+                        <p key={i} className={`text-[#4d5b64] ${i === 1 && info.icon === 'call' ? 'text-sm font-medium mt-1' : ''}`}>{l}</p>
                       ))}
                     </div>
                   </div>

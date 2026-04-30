@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+// import smizeLogo from '../assets/smizenewlogo.png'
 import smizeLogo from '../assets/smizelogo.jpeg'
+
 
 const navLinks = [
   { to: '/services', label: 'Services' },
@@ -48,7 +50,7 @@ export default function Navbar() {
           transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <Link to="/" className="flex items-center gap-2.5 mt-15">
-            <img src={smizeLogo} alt="Smize Dental Atelier" className="h-40 w-40 rounded-full object-cover" />
+            <img src={smizeLogo} alt="Best Dental Clinic In Tathawade pune" className="h-40 w-40 rounded-full object-cover" />
           </Link>
         </motion.div>
 
