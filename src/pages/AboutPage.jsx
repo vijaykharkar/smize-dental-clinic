@@ -43,9 +43,6 @@ export default function AboutPage() {
               animate="visible"
               className="space-y-8"
             >
-              <motion.span variants={staggerItem} className="inline-block px-4 py-1.5 bg-[#7cf8dd] text-[#007261] rounded-full text-sm font-bold uppercase tracking-wider">
-                Since 1998
-              </motion.span>
               <motion.h1 variants={staggerItem} className="text-display font-bold text-[#111c2d] leading-tight">
                 Professional care, patient serenity.
               </motion.h1>

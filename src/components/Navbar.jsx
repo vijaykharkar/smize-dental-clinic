@@ -49,10 +49,6 @@ export default function Navbar() {
         >
           <Link to="/" className="flex items-center gap-2.5 mt-20">
             <img src={smizeLogo} alt="Smize Dental Atelier" className="h-50 w-50 rounded-full object-cover" />
-            {/* <div className="leading-tight">
-              <span className="text-lg font-extrabold tracking-tight text-sky-700 block">SMIZE DENTAL</span>
-              <span className="text-[10px] font-semibold text-slate-400 tracking-widest uppercase">ATELIER</span>
-            </div> */}
           </Link>
         </motion.div>
 
