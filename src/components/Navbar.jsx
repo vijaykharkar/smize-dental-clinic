@@ -47,8 +47,8 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Link to="/" className="flex items-center gap-2.5 mt-20">
-            <img src={smizeLogo} alt="Smize Dental Atelier" className="h-50 w-50 rounded-full object-cover" />
+          <Link to="/" className="flex items-center gap-2.5 mt-15">
+            <img src={smizeLogo} alt="Smize Dental Atelier" className="h-40 w-40 rounded-full object-cover" />
           </Link>
         </motion.div>
 
