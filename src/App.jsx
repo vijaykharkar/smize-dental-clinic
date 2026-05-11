@@ -7,6 +7,7 @@ import EnhancedHomePage from './pages/EnhancedHomePage'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
+import ServiceDetailPage from './pages/ServiceDetailPage'
 import AppointmentPage from './pages/AppointmentPage'
 import ContactPage from './pages/ContactPage'
 import DoctorProfilePage from './pages/DoctorProfilePage'
@@ -14,6 +15,7 @@ import FAQPage from './pages/FAQPage'
 import GalleryPage from './pages/GalleryPage'
 import InsurancePage from './pages/InsurancePage'
 import BlogPage from './pages/BlogPage'
+import BlogDetailPage from './pages/BlogDetailPage'
 import DashboardPage from './pages/DashboardPage'
 import PricingPage from './pages/PricingPage'
 import PatientExperiencePage from './pages/PatientExperiencePage'
@@ -27,6 +29,7 @@ function AppRoutes() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:slug" element={<ServiceDetailPage />} />
         <Route path="/appointment" element={<AppointmentPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/doctor/shubham-kharat" element={<DoctorProfilePage />} />
@@ -34,6 +37,7 @@ function AppRoutes() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/insurance" element={<InsurancePage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/patient-experience" element={<PatientExperiencePage />} />

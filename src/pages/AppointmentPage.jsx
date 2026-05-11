@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -6,7 +8,21 @@ import { staggerContainer, staggerItem, slideInRight, scaleIn } from '../utils/a
 
 const vp = { once: true, margin: '-60px' }
 
+const serviceOptions = ['General Checkup', 'Teeth Cleaning', 'Root Canal', 'Dental Implants', 'Teeth Whitening', 'Dental Veneers', 'Smile Makeover', 'Composite Bonding', 'Dental Fillings', 'Invisible Braces', 'Pediatric Dentistry', 'Dental Trauma', 'Braces / Aligners', 'Cosmetic Consultation', 'Emergency Care']
+
 export default function AppointmentPage() {
+  const [searchParams] = useSearchParams()
+  const prefilledService = searchParams.get('service') || ''
+  const [selectedService, setSelectedService] = useState(prefilledService)
+
+  useEffect(() => {
+    if (prefilledService) {
+      const match = serviceOptions.find(s => s.toLowerCase().includes(prefilledService.toLowerCase()))
+      if (match) setSelectedService(match)
+      else setSelectedService(prefilledService)
+    }
+  }, [prefilledService])
+
   return (
     <PageTransition>
     <div className="bg-[#f9f9ff] text-[#111c2d] font-manrope antialiased">
@@ -142,10 +158,12 @@ export default function AppointmentPage() {
                     <label className="text-sm font-semibold text-[#111c2d]" htmlFor="service">Select Service</label>
                     <select
                       id="service"
+                      value={selectedService}
+                      onChange={(e) => setSelectedService(e.target.value)}
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm appearance-none"
                     >
                       <option value="">Choose a service</option>
-                      {['General Checkup', 'Teeth Cleaning', 'Root Canal', 'Dental Implants', 'Teeth Whitening', 'Braces / Aligners', 'Cosmetic Consultation', 'Emergency Care'].map(s => (
+                      {serviceOptions.map(s => (
                         <option key={s} value={s}>{s}</option>
                       ))}
                     </select>

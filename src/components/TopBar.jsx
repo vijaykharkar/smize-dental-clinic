@@ -6,9 +6,9 @@ export default function TopBar() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 w-full bg-[#005d90] text-white py-2 px-4 md:px-8 font-manrope z-[60]"
+      className="fixed top-0 w-full bg-[#005d90] text-white py-1.5 sm:py-2 px-3 sm:px-4 md:px-8 font-manrope z-[60]"
     >
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs md:text-sm">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 text-[11px] sm:text-xs md:text-sm">
         <div className="flex items-center gap-4 md:gap-6">
           <a
             href="tel:9272351881"

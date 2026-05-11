@@ -161,7 +161,7 @@ export default function EnhancedHomePage() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/80 via-[#0a1628]/55 to-[#0a1628]/20" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-28 sm:pt-24 pb-16 sm:pb-24">
               <div className="space-y-8 max-w-2xl">
 
                 {/* Text carousel — line-level animation */}
@@ -204,7 +204,7 @@ export default function EnhancedHomePage() {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }}>
                     <Link
                       to="/appointment"
-                      className="bg-[#005d90] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-all inline-block hover:bg-[#0077b6]"
+                      className="bg-[#005d90] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold shadow-lg transition-all inline-block hover:bg-[#0077b6] text-sm sm:text-base"
                     >
                       Book Appointment
                     </Link>
@@ -215,7 +215,7 @@ export default function EnhancedHomePage() {
                       href="https://wa.me/919272351881?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Smize%20Dental%20Atelier."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-all inline-flex items-center gap-2 hover:bg-[#1ebe5b]"
+                      className="bg-[#25D366] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold shadow-lg transition-all inline-flex items-center gap-2 hover:bg-[#1ebe5b] text-sm sm:text-base"
                     >
                       <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
@@ -229,7 +229,7 @@ export default function EnhancedHomePage() {
                       href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all inline-flex items-center gap-2"
+                      className="border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold hover:bg-white/20 transition-all inline-flex items-center gap-2 text-sm sm:text-base"
                     >
                       <span className="material-symbols-outlined text-xl">
                         directions
