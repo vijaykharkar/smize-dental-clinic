@@ -1,12 +1,47 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PageTransition from '../components/PageTransition'
 import { slideInLeft, slideInRight } from '../utils/animations'
 
 const vp = { once: true, margin: '-60px' }
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
+const emptyForm = { name: '', email: '', reason: 'General Inquiry', message: '' }
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ ...emptyForm })
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
+
+  const handleChange = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!form.name || !form.email || !form.message) {
+      setErrorMsg('Please fill in all required fields.')
+      setStatus('error')
+      return
+    }
+    setStatus('loading')
+    setErrorMsg('')
+    try {
+      const res = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.detail || 'Something went wrong')
+      setStatus('success')
+      setForm({ ...emptyForm })
+    } catch (err) {
+      setErrorMsg(err.message || 'Failed to send. Please try again.')
+      setStatus('error')
+    }
+  }
+
   return (
     <PageTransition>
     <div className="bg-[#f9f9ff] text-[#111c2d] font-manrope antialiased">
@@ -90,21 +125,66 @@ export default function ContactPage() {
           >
             <div className="bg-white p-8 rounded-xl air-shadow border border-[#e7eeff]">
               <h2 className="text-xl font-bold text-[#005d90] mb-6">Send us a Message</h2>
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={(e) => e.preventDefault()}>
+
+              {/* Success Message */}
+              <AnimatePresence>
+                {status === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mb-6 bg-[#e8faf3] border border-[#7cf8dd] rounded-xl p-4 flex items-start gap-3"
+                  >
+                    <span className="material-symbols-outlined text-[#006b5b] mt-0.5">check_circle</span>
+                    <div>
+                      <p className="font-bold text-[#006b5b]">Message Sent!</p>
+                      <p className="text-sm text-[#4d5b64] mt-1">We'll get back to you shortly.</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Error Message */}
+              <AnimatePresence>
+                {status === 'error' && errorMsg && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mb-6 bg-[#fef2f2] border border-[#fca5a5] rounded-xl p-4 flex items-start gap-3"
+                  >
+                    <span className="material-symbols-outlined text-[#dc2626] mt-0.5">error</span>
+                    <div>
+                      <p className="font-bold text-[#dc2626]">Something went wrong</p>
+                      <p className="text-sm text-[#4d5b64] mt-1">{errorMsg}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="name">Full Name</label>
+                  <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="name">Full Name *</label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
                     placeholder="John Doe"
                     className="w-full bg-[#f8fafc] border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#0077b6]/30 outline-none text-sm"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="contactEmail">Email Address</label>
+                  <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="contactEmail">Email Address *</label>
                   <input
                     id="contactEmail"
+                    name="email"
                     type="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
                     placeholder="john@example.com"
                     className="w-full bg-[#f8fafc] border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#0077b6]/30 outline-none text-sm"
                   />
@@ -113,6 +193,9 @@ export default function ContactPage() {
                   <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="reason">Reason for Contact</label>
                   <select
                     id="reason"
+                    name="reason"
+                    value={form.reason}
+                    onChange={handleChange}
                     className="w-full bg-[#f8fafc] border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#0077b6]/30 outline-none text-sm appearance-none"
                   >
                     <option>General Inquiry</option>
@@ -122,10 +205,14 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div className="space-y-2 md:col-span-2">
-                  <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="message">Message</label>
+                  <label className="text-sm font-semibold text-[#111c2d] ml-1" htmlFor="message">Message *</label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
+                    required
+                    value={form.message}
+                    onChange={handleChange}
                     placeholder="How can we help you today?"
                     className="w-full bg-[#f8fafc] border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#0077b6]/30 outline-none text-sm resize-none"
                   />
@@ -135,9 +222,15 @@ export default function ContactPage() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full bg-[#0077b6] text-white font-bold py-4 rounded-lg hover:bg-[#005d90] transition-colors shadow-md"
+                    disabled={status === 'loading'}
+                    className="w-full bg-[#0077b6] text-white font-bold py-4 rounded-lg hover:bg-[#005d90] transition-colors shadow-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                   >
-                    Send Message
+                    {status === 'loading' ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                        Sending...
+                      </>
+                    ) : 'Send Message'}
                   </motion.button>
                 </div>
               </form>

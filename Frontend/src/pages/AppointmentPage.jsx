@@ -1,27 +1,68 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PageTransition from '../components/PageTransition'
 import { staggerContainer, staggerItem, slideInRight, scaleIn } from '../utils/animations'
 
 const vp = { once: true, margin: '-60px' }
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const serviceOptions = ['General Checkup', 'Teeth Cleaning', 'Root Canal', 'Dental Implants', 'Teeth Whitening', 'Dental Veneers', 'Smile Makeover', 'Composite Bonding', 'Dental Fillings', 'Invisible Braces', 'Pediatric Dentistry', 'Dental Trauma', 'Braces / Aligners', 'Cosmetic Consultation', 'Emergency Care']
+
+const emptyForm = { fullName: '', phone: '', email: '', dob: '', date: '', time: '', service: '', doctor: '', notes: '' }
 
 export default function AppointmentPage() {
   const [searchParams] = useSearchParams()
   const prefilledService = searchParams.get('service') || ''
-  const [selectedService, setSelectedService] = useState(prefilledService)
+  const [form, setForm] = useState({ ...emptyForm, service: prefilledService })
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
 
   useEffect(() => {
     if (prefilledService) {
       const match = serviceOptions.find(s => s.toLowerCase().includes(prefilledService.toLowerCase()))
-      if (match) setSelectedService(match)
-      else setSelectedService(prefilledService)
+      setForm(f => ({ ...f, service: match || prefilledService }))
     }
   }, [prefilledService])
+
+  const handleChange = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!form.fullName || !form.phone || !form.email || !form.date || !form.time || !form.service) {
+      setErrorMsg('Please fill in all required fields.')
+      setStatus('error')
+      return
+    }
+    setStatus('loading')
+    setErrorMsg('')
+    try {
+      const res = await fetch(`${API_URL}/api/appointment`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: form.fullName,
+          phone: form.phone,
+          email: form.email,
+          dob: form.dob,
+          preferred_date: form.date,
+          preferred_time: form.time,
+          service: form.service,
+          doctor: form.doctor || 'No preference',
+          notes: form.notes,
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.detail || 'Something went wrong')
+      setStatus('success')
+      setForm({ ...emptyForm })
+    } catch (err) {
+      setErrorMsg(err.message || 'Failed to submit. Please try again.')
+      setStatus('error')
+    }
+  }
 
   return (
     <PageTransition>
@@ -87,34 +128,83 @@ export default function AppointmentPage() {
             className="bg-white rounded-2xl air-shadow border border-[#d8e3fb] p-10"
           >
             <h2 className="text-headline-md font-bold text-[#005d90] mb-8">Appointment Details</h2>
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+
+            {/* Success Message */}
+            <AnimatePresence>
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-8 bg-[#e8faf3] border border-[#7cf8dd] rounded-xl p-5 flex items-start gap-3"
+                >
+                  <span className="material-symbols-outlined text-[#006b5b] mt-0.5">check_circle</span>
+                  <div>
+                    <p className="font-bold text-[#006b5b]">Appointment Request Sent!</p>
+                    <p className="text-sm text-[#4d5b64] mt-1">We've received your request and will confirm within 24 hours. Check your email for updates.</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Error Message */}
+            <AnimatePresence>
+              {status === 'error' && errorMsg && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-8 bg-[#fef2f2] border border-[#fca5a5] rounded-xl p-5 flex items-start gap-3"
+                >
+                  <span className="material-symbols-outlined text-[#dc2626] mt-0.5">error</span>
+                  <div>
+                    <p className="font-bold text-[#dc2626]">Something went wrong</p>
+                    <p className="text-sm text-[#4d5b64] mt-1">{errorMsg}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <form className="space-y-8" onSubmit={handleSubmit}>
               {/* Personal Information */}
               <div>
                 <h3 className="text-sm font-bold text-[#707881] uppercase tracking-widest mb-4">Personal Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="fullName">Full Name</label>
+                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="fullName">Full Name *</label>
                     <input
                       id="fullName"
+                      name="fullName"
                       type="text"
+                      required
+                      value={form.fullName}
+                      onChange={handleChange}
                       placeholder="John Doe"
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="phone">Phone Number</label>
+                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="phone">Phone Number *</label>
                     <input
                       id="phone"
+                      name="phone"
                       type="tel"
-                      placeholder="(555) 000-0000"
+                      required
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="92723 51881"
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="email">Email Address</label>
+                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="email">Email Address *</label>
                     <input
                       id="email"
+                      name="email"
                       type="email"
+                      required
+                      value={form.email}
+                      onChange={handleChange}
                       placeholder="john@example.com"
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm"
                     />
@@ -123,7 +213,10 @@ export default function AppointmentPage() {
                     <label className="text-sm font-semibold text-[#111c2d]" htmlFor="dob">Date of Birth</label>
                     <input
                       id="dob"
+                      name="dob"
                       type="date"
+                      value={form.dob}
+                      onChange={handleChange}
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm"
                     />
                   </div>
@@ -135,17 +228,25 @@ export default function AppointmentPage() {
                 <h3 className="text-sm font-bold text-[#707881] uppercase tracking-widest mb-4">Appointment Details</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="date">Preferred Date</label>
+                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="date">Preferred Date *</label>
                     <input
                       id="date"
+                      name="date"
                       type="date"
+                      required
+                      value={form.date}
+                      onChange={handleChange}
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="time">Preferred Time</label>
+                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="time">Preferred Time *</label>
                     <select
                       id="time"
+                      name="time"
+                      required
+                      value={form.time}
+                      onChange={handleChange}
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm appearance-none"
                     >
                       <option value="">Select a time slot</option>
@@ -155,11 +256,13 @@ export default function AppointmentPage() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="service">Select Service</label>
+                    <label className="text-sm font-semibold text-[#111c2d]" htmlFor="service">Select Service *</label>
                     <select
                       id="service"
-                      value={selectedService}
-                      onChange={(e) => setSelectedService(e.target.value)}
+                      name="service"
+                      required
+                      value={form.service}
+                      onChange={handleChange}
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm appearance-none"
                     >
                       <option value="">Choose a service</option>
@@ -172,11 +275,14 @@ export default function AppointmentPage() {
                     <label className="text-sm font-semibold text-[#111c2d]" htmlFor="doctor">Preferred Doctor</label>
                     <select
                       id="doctor"
+                      name="doctor"
+                      value={form.doctor}
+                      onChange={handleChange}
                       className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm appearance-none"
                     >
                       <option value="">No preference</option>
-                      <option value="shubham">Dr. Shubham Kharat</option>
-                      <option value="deepika">Dr. Deepika Waghmare Kharat</option>
+                      <option value="Dr. Shubham Kharat">Dr. Shubham Kharat</option>
+                      <option value="Dr. Deepika Waghmare Kharat">Dr. Deepika Waghmare Kharat</option>
                     </select>
                   </div>
                 </div>
@@ -187,7 +293,10 @@ export default function AppointmentPage() {
                 <label className="text-sm font-semibold text-[#111c2d]" htmlFor="notes">Additional Notes</label>
                 <textarea
                   id="notes"
+                  name="notes"
                   rows={4}
+                  value={form.notes}
+                  onChange={handleChange}
                   placeholder="Let us know about any dental concerns or special requirements..."
                   className="w-full bg-[#f8fafc] border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#005d90]/30 outline-none text-sm resize-none"
                 />
@@ -197,9 +306,15 @@ export default function AppointmentPage() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-[#0077b6] text-white py-5 rounded-xl font-bold text-lg hover:bg-[#005d90] transition-colors shadow-lg"
+                disabled={status === 'loading'}
+                className="w-full bg-[#0077b6] text-white py-5 rounded-xl font-bold text-lg hover:bg-[#005d90] transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
               >
-                Confirm Appointment
+                {status === 'loading' ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                    Sending...
+                  </>
+                ) : 'Confirm Appointment'}
               </motion.button>
               <p className="text-center text-xs text-[#707881]">
                 By submitting, you agree to our privacy policy. We will confirm your appointment within 24 hours.
