@@ -103,10 +103,10 @@ export default function ContactPage() {
               <h2 className="text-xl font-bold text-[#005d90] mb-6">Working Hours</h2>
               <div className="space-y-3">
                 {[
-                  { days: 'Monday – Thursday', hours: '8:00 AM – 6:00 PM' },
-                  { days: 'Friday', hours: '8:00 AM – 4:00 PM' },
-                  { days: 'Saturday', hours: '9:00 AM – 2:00 PM' },
-                  { days: 'Sunday', hours: 'Closed', closed: true },
+                  { days: 'Monday – Thursday', hours: '10:00 AM – 10:00 PM' },
+                  { days: 'Friday', hours: '10:00 AM – 10:00 PM' },
+                  { days: 'Saturday', hours: '10:00 AM – 10:00 PM' },
+                  { days: 'Sunday', hours: '10:00 AM – 10:00 PM' },
                 ].map((row) => (
                   <div key={row.days} className="flex justify-between items-center py-2 border-b border-[#f0f3ff] last:border-0">
                     <span className="text-[#4d5b64]">{row.days}</span>

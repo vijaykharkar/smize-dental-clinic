@@ -85,7 +85,7 @@ export default function AppointmentPage() {
               <div className="space-y-4">
                 {[
                   { icon: 'phone_in_talk', label: 'Call Us', value: '92723 51881 / 74472 51881' },
-                  { icon: 'schedule', label: 'Working Hours', value: 'Mon–Sat, 10AM–8PM' },
+                  { icon: 'schedule', label: 'Working Hours', value: 'Mon–Sat, 10AM–10PM' },
                   { icon: 'location_on', label: 'Our Address', value: 'Krisala 41 Elite, Tathawade - 411033' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
