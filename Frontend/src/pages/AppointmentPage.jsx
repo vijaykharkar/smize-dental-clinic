@@ -7,7 +7,6 @@ import PageTransition from '../components/PageTransition'
 import { staggerContainer, staggerItem, slideInRight, scaleIn } from '../utils/animations'
 
 const vp = { once: true, margin: '-60px' }
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const serviceOptions = ['General Checkup', 'Teeth Cleaning', 'Root Canal', 'Dental Implants', 'Teeth Whitening', 'Dental Veneers', 'Smile Makeover', 'Composite Bonding', 'Dental Fillings', 'Invisible Braces', 'Pediatric Dentistry', 'Dental Trauma', 'Braces / Aligners', 'Cosmetic Consultation', 'Emergency Care']
 
@@ -29,7 +28,7 @@ export default function AppointmentPage() {
 
   const handleChange = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.fullName || !form.phone || !form.email || !form.date || !form.time || !form.service) {
       setErrorMsg('Please fill in all required fields.')
@@ -38,30 +37,28 @@ export default function AppointmentPage() {
     }
     setStatus('loading')
     setErrorMsg('')
-    try {
-      const res = await fetch(`${API_URL}/api/appointment`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          full_name: form.fullName,
-          phone: form.phone,
-          email: form.email,
-          dob: form.dob,
-          preferred_date: form.date,
-          preferred_time: form.time,
-          service: form.service,
-          doctor: form.doctor || 'No preference',
-          notes: form.notes,
-        }),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.detail || 'Something went wrong')
-      setStatus('success')
-      setForm({ ...emptyForm })
-    } catch (err) {
-      setErrorMsg(err.message || 'Failed to submit. Please try again.')
-      setStatus('error')
-    }
+
+    const CLINIC_WHATSAPP = '919272351881'
+
+    const message = [
+      `*New Appointment Request*`,
+      ``,
+      `*Name:* ${form.fullName}`,
+      `*Phone:* ${form.phone}`,
+      `*Email:* ${form.email}`,
+      form.dob ? `*Date of Birth:* ${form.dob}` : '',
+      `*Preferred Date:* ${form.date}`,
+      `*Preferred Time:* ${form.time}`,
+      `*Service:* ${form.service}`,
+      `*Doctor:* ${form.doctor || 'No preference'}`,
+      form.notes ? `*Notes:* ${form.notes}` : '',
+    ].filter(Boolean).join('\n')
+
+    const whatsappUrl = `https://wa.me/${CLINIC_WHATSAPP}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+
+    setStatus('success')
+    setForm({ ...emptyForm })
   }
 
   return (

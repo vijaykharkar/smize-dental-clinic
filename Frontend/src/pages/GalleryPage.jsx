@@ -135,12 +135,12 @@ export default function GalleryPage() {
               >
                 Book a Consultation
               </Link>
-              <Link
+              {/* <Link
                 to="/pricing"
                 className="bg-white text-sky-700 border-2 border-sky-700 px-10 py-4 rounded-full font-bold hover:bg-sky-50 transition-all"
               >
                 View Pricing
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         </section>

@@ -102,7 +102,7 @@ export default function Footer() {
 
       <div className="border-t border-slate-50 py-8 px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
-          <p>© 2024 Smize Dental Atelier. Enriching a Legacy of Smiles.</p>
+          <p>© 2026 Smize Dental Atelier. Enriching a Legacy of Smiles.</p>
           <motion.button
             className="flex items-center gap-2 hover:text-sky-700 transition-colors"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

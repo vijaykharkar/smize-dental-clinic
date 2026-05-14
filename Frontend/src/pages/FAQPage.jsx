@@ -107,6 +107,33 @@ export default function FAQPage() {
           </motion.div>
         </section>
 
+        {/* Still have questions CTA — at the top */}
+        <section className="max-w-screen-xl mx-auto px-8 mb-12">
+          <motion.div
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={vp}
+            className="bg-[#cde5ff] p-10 rounded-3xl relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full -mr-20 -mt-20 blur-3xl" />
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <h2 className="text-2xl font-bold text-sky-900 mb-2">Still have questions?</h2>
+                <p className="text-lg text-sky-800/80">Can't find what you're looking for? Our team is here to help.</p>
+              </div>
+              <div className="flex gap-4 flex-shrink-0">
+                <Link to="/contact" className="bg-[#0077b6] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#005d90] transition-colors">
+                  Contact Us
+                </Link>
+                <a href="tel:9272351881" className="bg-white text-[#005d90] border border-[#005d90]/10 px-8 py-4 rounded-full font-bold shadow-sm hover:bg-sky-50 transition-colors">
+                  Call Now
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* FAQ Layout */}
         <section className="max-w-screen-xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Sidebar */}
@@ -154,32 +181,6 @@ export default function FAQPage() {
               )}
             </div>
 
-            {/* Still have questions CTA */}
-            {!search.trim() && (
-              <motion.div
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={vp}
-                className="mt-12 bg-[#cde5ff] p-12 rounded-3xl relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full -mr-20 -mt-20 blur-3xl" />
-                <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                  <div>
-                    <h2 className="text-2xl font-bold text-sky-900 mb-2">Still have questions?</h2>
-                    <p className="text-lg text-sky-800/80">Can't find what you're looking for? Our team is here to help.</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <Link to="/contact" className="bg-[#0077b6] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#005d90] transition-colors">
-                      Contact Us
-                    </Link>
-                    <a href="tel:9272351881" className="bg-white text-[#005d90] border border-[#005d90]/10 px-8 py-4 rounded-full font-bold shadow-sm hover:bg-sky-50 transition-colors">
-                      Call Now
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            )}
           </div>
         </section>
       </main>

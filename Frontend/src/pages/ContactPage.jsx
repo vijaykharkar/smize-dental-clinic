@@ -6,7 +6,6 @@ import PageTransition from '../components/PageTransition'
 import { slideInLeft, slideInRight } from '../utils/animations'
 
 const vp = { once: true, margin: '-60px' }
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const emptyForm = { name: '', email: '', reason: 'General Inquiry', message: '' }
 
@@ -17,7 +16,7 @@ export default function ContactPage() {
 
   const handleChange = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.name || !form.email || !form.message) {
       setErrorMsg('Please fill in all required fields.')
@@ -26,20 +25,23 @@ export default function ContactPage() {
     }
     setStatus('loading')
     setErrorMsg('')
-    try {
-      const res = await fetch(`${API_URL}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.detail || 'Something went wrong')
-      setStatus('success')
-      setForm({ ...emptyForm })
-    } catch (err) {
-      setErrorMsg(err.message || 'Failed to send. Please try again.')
-      setStatus('error')
-    }
+
+    const CLINIC_WHATSAPP = '919272351881'
+
+    const message = [
+      `*New Contact Message*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Email:* ${form.email}`,
+      `*Reason:* ${form.reason}`,
+      `*Message:* ${form.message}`,
+    ].join('\n')
+
+    const whatsappUrl = `https://wa.me/${CLINIC_WHATSAPP}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+
+    setStatus('success')
+    setForm({ ...emptyForm })
   }
 
   return (
