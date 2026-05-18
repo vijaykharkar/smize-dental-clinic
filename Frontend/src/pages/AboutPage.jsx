@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PageTransition from '../components/PageTransition'
 import { staggerContainer, staggerItem, slideInLeft, slideInRight, scaleIn } from '../utils/animations'
+import drShubham from '../assets/clinic/shubham.jpeg'
+import drDipika  from '../assets/clinic/dipika.jpeg'
 
 const vp = { once: true, margin: '-60px' }
 
@@ -164,7 +166,7 @@ export default function AboutPage() {
 
 
           {/* ── Meet Our Doctors ── */}
-          <section className="max-w-7xl mx-auto px-8 py-16 lg:py-24">
+          <section className="max-w-7xl mx-auto px-4 sm:px-8 py-16 lg:py-24">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -176,89 +178,150 @@ export default function AboutPage() {
               <p className="text-[#4d5b64]">Skilled, compassionate, and driven by a shared commitment to crafted dental excellence.</p>
             </motion.div>
 
-            {/* Lead Doctor — featured card */}
-            <motion.div
-              variants={scaleIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={vp}
-              className="bg-white rounded-3xl overflow-hidden border border-[#d6e5ef] air-shadow mb-8"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-5">
-                <div className="lg:col-span-2 h-80 lg:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover object-top"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbxqOkkp0s0Q8pgGp7rrjfE5xSR9ZEl6w-qepEhftLxW1okbGhz69nvpNoVRwx5EX6SXY3axEWvBcqvkKiCARDTE7rsxpzqNPvrmd1jltio1uRRkDr6nLLnN3CWAtqEYeuj83O87AoVgAPJV6n_XgrZvyQYOWok1XLLfEDJf3F4tJmY48kC1dObH3eGQz9f_fxFr3VuqdIX8I3dQSg_85_umIvzT7S3DqelX8QK5klCUyd3kjcslieOV2jSLlVpVyAF-cKIRXRaoo"
-                    alt="Dr. Shubham Kharat"
-                  />
-                </div>
-                <div className="lg:col-span-3 p-10 lg:p-14 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="material-symbols-outlined text-[#006b5b] text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-                    <span className="text-sm font-bold text-[#006b5b] uppercase tracking-widest">Founder & Chief Dental Surgeon</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-[#111c2d] mb-1">Dr. Shubham Kharat</h3>
-                  <p className="text-[#005d90] font-semibold mb-6">Conservative Dentistry & Endodontics · MDS – BHU</p>
-                  <p className="text-[#4d5b64] leading-relaxed mb-6">
-                    An MDS-trained Endodontist from Banaras Hindu University, Dr. Kharat brings together clinical precision and an artist's sensibility for aesthetics. Specializing in painless root canal treatments and smile transformations, he approaches every case with meticulous care — ensuring procedures are not just effective, but truly comfortable. His philosophy: every patient deserves dentistry that is as gentle as it is precise.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                    {[
-                      { icon: 'school', text: 'B.D.S. – Govt. Dental College, Chhatrapati Sambhajinagar' },
-                      { icon: 'workspace_premium', text: 'M.D.S. – Banaras Hindu University (BHU)' },
-                      { icon: 'dentistry', text: 'Specialization: Root Canal & Smile Design' },
-                      { icon: 'badge', text: 'Reg. No. A-41636' },
-                    ].map((q) => (
-                      <div key={q.text} className="flex items-start gap-2 text-sm text-[#4d5b64]">
-                        <span className="material-symbols-outlined text-[#005d90] text-base mt-0.5 flex-shrink-0">{q.icon}</span>
-                        {q.text}
-                      </div>
-                    ))}
-                  </div>
-                  <Link
-                    to="/doctor/shubham-kharat"
-                    className="self-start inline-flex items-center gap-2 bg-[#005d90] text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#0077b6] transition-colors"
-                  >
-                    View Full Profile <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+            <div className="space-y-8">
+              {[
+                {
+                  photo: drShubham,
+                  accent: '#005d90',
+                  accentLight: '#e8f4fd',
+                  tag: 'Founder & Chief Dental Surgeon',
+                  name: 'Dr. Shubham Kharat',
+                  qual: 'BDS · MDS (Endodontics) — Banaras Hindu University',
+                  spec: 'Root Canal Therapy · Smile Design · Restorative Dentistry',
+                  bio: "An MDS-trained Endodontist from Banaras Hindu University, Dr. Kharat blends clinical precision with an artist's eye for aesthetics. Specialising in painless root canals and smile transformations, he approaches every case with meticulous care — ensuring treatments are not just effective, but genuinely comfortable.",
+                  stats: [
+                    { value: '10+', label: 'Years Experience' },
+                    { value: '5000+', label: 'Happy Patients' },
+                    { value: '99%', label: 'Success Rate' },
+                  ],
+                  quals: [
+                    { icon: 'school',           text: 'B.D.S. – Govt. Dental College, Sambhajinagar' },
+                    { icon: 'workspace_premium', text: 'M.D.S. – Banaras Hindu University (BHU)' },
+                    { icon: 'dentistry',         text: 'Root Canal & Smile Design Expert' },
+                    { icon: 'badge',             text: 'Reg. No. A-41636' },
+                  ],
+                  flip: false,
+                },
+                {
+                  photo: drDipika,
+                  accent: '#006b5b',
+                  accentLight: '#e6faf5',
+                  tag: 'Dental Surgeon',
+                  name: 'Dr. Deepika Waghmare Kharat',
+                  qual: 'BDS — Nair Hospital Dental College, Mumbai',
+                  spec: 'General Dentistry · Preventive Care · Cosmetic Restoration',
+                  bio: 'Trained at the prestigious Nair Hospital Dental College, Mumbai, Dr. Deepika brings warmth and thoroughness to every consultation. Her expertise in preventive and restorative dentistry ensures patients receive truly holistic care — from routine hygiene to full-mouth rehabilitation — with sensitivity and genuine empathy.',
+                  stats: [
+                    { value: '8+', label: 'Years Experience' },
+                    { value: '3000+', label: 'Patients Treated' },
+                    { value: '100%', label: 'Patient Care' },
+                  ],
+                  quals: [
+                    { icon: 'school',           text: 'B.D.S. – Nair Hospital Dental College, Mumbai' },
+                    { icon: 'workspace_premium', text: 'Advanced Cosmetic & Restorative Training' },
+                    { icon: 'dentistry',         text: 'Preventive & General Dentistry' },
+                    { icon: 'badge',             text: 'Reg. No. A-55193' },
+                  ],
+                  flip: true,
+                },
+              ].map((doc, i) => (
+                <motion.div
+                  key={doc.name}
+                  initial={{ opacity: 0, x: doc.flip ? 60 : -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={vp}
+                  transition={{ delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="group bg-white rounded-3xl overflow-hidden border border-[#d6e5ef] shadow-[0_8px_40px_rgba(0,93,144,0.10)] hover:shadow-[0_16px_56px_rgba(0,93,144,0.16)] transition-shadow duration-500"
+                >
+                  <div className={`flex flex-col md:flex-row ${doc.flip ? 'md:flex-row-reverse' : ''}`}>
 
-            {/* Supporting Doctor */}
-            <motion.div
-              variants={staggerItem}
-              initial="hidden"
-              whileInView="visible"
-              viewport={vp}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-2xl overflow-hidden border border-[#d6e5ef] air-shadow max-w-2xl"
-            >
-              <div className="flex flex-col sm:flex-row">
-                <div className="sm:w-48 h-56 sm:h-auto overflow-hidden flex-shrink-0">
-                  <img
-                    className="w-full h-full object-cover object-top"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCURTwQ7yA-qsxHI4wVQc8_E4aICv-JULkZg5VM3b3AQ-H0hX3y9-DZUiBiIzZwX-VPdlVvoRZ1zaANLHFtFIVcd9lotDet13Q3pt_sJnqFEaz0U_U_zd7ZsrSiSw3D4t8qVsebsOgoVCC_9bcWU3_BJxyO4B9QS0MDBY7sIuIgSQJXFWDsPAk846VxhIR9lAcnDcixCIrbfhNmnwGcdsnzvc5ySEafwdk-K-uLly5I6RBvIs7PPDwLFoZAr43avv39nzelracbYEY"
-                    alt="Dr. Deepika Waghmare Kharat"
-                  />
-                </div>
-                <div className="p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="material-symbols-outlined text-[#006b5b] text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-                    <span className="text-sm font-bold text-[#006b5b] uppercase tracking-widest">Dental Surgeon</span>
+                    {/* ── Photo Panel ── */}
+                    <div className="relative md:w-2/5 h-[340px] md:h-auto overflow-hidden flex-shrink-0 bg-[#e8f4fd]">
+                      <motion.img
+                        src={doc.photo}
+                        alt={doc.name}
+                        className="w-full h-full object-cover object-center"
+                        whileHover={{ scale: 1.04 }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                      {/* Gradient overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-r ${doc.flip ? 'from-transparent to-[#0a1628]/40' : 'from-[#0a1628]/40 to-transparent'}`} />
+                      {/* Role badge */}
+                      <div className="absolute top-5 left-5">
+                        <span className="bg-white/90 backdrop-blur-sm text-[#005d90] text-xs font-bold px-4 py-1.5 rounded-full shadow-md border border-white">
+                          {doc.tag}
+                        </span>
+                      </div>
+                      {/* Stats row at bottom of photo */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-5 py-4">
+                        <div className="flex justify-around text-center">
+                          {doc.stats.map(s => (
+                            <div key={s.label}>
+                              <p className="text-white font-bold text-lg leading-tight">{s.value}</p>
+                              <p className="text-white/75 text-[10px] font-medium">{s.label}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ── Content Panel ── */}
+                    <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
+                      {/* Verified tag */}
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="material-symbols-outlined text-base" style={{ color: doc.accent, fontVariationSettings: "'FILL' 1" }}>verified</span>
+                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: doc.accent }}>{doc.tag}</span>
+                      </div>
+
+                      {/* Name */}
+                      <h3 className="text-2xl lg:text-3xl font-bold text-[#111c2d] mb-1">{doc.name}</h3>
+                      <p className="text-sm font-semibold mb-1" style={{ color: doc.accent }}>{doc.qual}</p>
+                      <p className="text-xs text-[#707881] mb-5 flex items-center gap-1.5">
+                        <span className="material-symbols-outlined text-sm" style={{ color: doc.accent }}>clinical_notes</span>
+                        {doc.spec}
+                      </p>
+
+                      {/* Divider */}
+                      <div className="w-12 h-0.5 rounded-full mb-5" style={{ backgroundColor: doc.accent }} />
+
+                      {/* Bio */}
+                      <p className="text-[#4d5b64] text-sm leading-relaxed mb-6">{doc.bio}</p>
+
+                      {/* Qualifications grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-7">
+                        {doc.quals.map((q) => (
+                          <div key={q.text} className="flex items-start gap-2 text-xs text-[#4d5b64] rounded-xl px-3 py-2.5" style={{ backgroundColor: doc.accentLight }}>
+                            <span className="material-symbols-outlined text-sm mt-0.5 flex-shrink-0" style={{ color: doc.accent }}>{q.icon}</span>
+                            {q.text}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* CTA */}
+                      <div className="flex flex-wrap gap-3">
+                        <Link
+                          to="/appointment"
+                          className="inline-flex items-center gap-2 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all hover:opacity-90 hover:shadow-lg shadow-md"
+                          style={{ backgroundColor: doc.accent }}
+                        >
+                          Book Appointment
+                          <span className="material-symbols-outlined text-base">arrow_forward</span>
+                        </Link>
+                        <a
+                          href="https://wa.me/919272351881"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-[#e8fdf3] text-[#006b5b] border border-[#7cf8dd] px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#d0f9ea] transition-all"
+                        >
+                          <svg className="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                          WhatsApp
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-[#111c2d] mb-1">Dr. Deepika Waghmare Kharat</h3>
-                  <p className="text-[#005d90] font-semibold text-sm mb-4">General & Preventive Dentistry · BDS – Nair, Mumbai</p>
-                  <p className="text-[#4d5b64] text-sm leading-relaxed mb-4">
-                    Trained at the prestigious Nair Hospital Dental College, Mumbai, Dr. Deepika brings warmth and thoroughness to every consultation. Her expertise in comprehensive and preventive care ensures patients receive holistic treatment — from routine hygiene to restorations — with sensitivity and genuine empathy.
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-[#4d5b64]">
-                    <span className="material-symbols-outlined text-[#005d90] text-sm">badge</span>
-                    Reg. No. A-55193
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+                </motion.div>
+              ))}
+            </div>
           </section>
 
           {/* ── Team Philosophy ── */}
