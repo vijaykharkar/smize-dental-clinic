@@ -248,7 +248,7 @@ export default function EnhancedHomePage() {
                   opacity: { delay: 1, duration: 0.8 },
                   y: { delay: 1.8, duration: 4, repeat: Infinity, ease: 'easeInOut' },
                 }}
-                className="absolute bottom-10 right-8 bg-white/95 backdrop-blur-sm p-5 rounded-2xl shadow-xl flex items-center gap-4"
+                className="absolute bottom-10 right-8 bg-white/95 backdrop-blur-sm p-5 rounded-2xl shadow-xl hidden sm:flex items-center gap-4"
               >
                 <div className="w-12 h-12 bg-[#7cf8dd] rounded-full flex items-center justify-center">
                   <span
@@ -260,7 +260,7 @@ export default function EnhancedHomePage() {
                 </div>
                 <div>
                   <div className="font-semibold text-[#111c2d]">4.9/5 Rating</div>
-                  <div className="text-sm text-[#404850]">Top-Rated Clinic 2024</div>
+                  <div className="text-sm text-[#404850]">Top-Rated Clinic 2026</div>
                 </div>
               </motion.div>
             </div>
@@ -692,6 +692,91 @@ export default function EnhancedHomePage() {
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
+            </div>
+          </section>
+
+          {/* Find Us Section */}
+          <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 lg:py-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={vp}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-block px-4 py-1.5 bg-[#7cf8dd] text-[#007261] rounded-full text-sm font-bold mb-4">Our Location</span>
+              <h2 className="text-headline-lg font-bold text-[#111c2d] mb-3">Find Us in Tathawade, Pune</h2>
+              <p className="text-body-lg text-[#404850]">Conveniently located at Krisala 41 Elite — easy to reach from Wakad, Hinjewadi & Baner.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              {/* Address Card */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={vp}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-2xl air-shadow border border-[#d8e3fb] p-8 flex flex-col justify-between gap-8"
+              >
+                <div className="space-y-6">
+                  {[
+                    { icon: 'location_on', title: 'Address', lines: ['Office No. 101, 1st Floor, C-Wing,', 'Krisala 41 Elite, Jeevan Nagar,', 'Ashok Road, Tathawade – 411033'] },
+                    { icon: 'call', title: 'Phone', lines: ['92723 51881', '74472 51881'] },
+                    { icon: 'schedule', title: 'Working Hours', lines: ['Mon – Sat: 10:00 AM – 8:00 PM', 'Sunday: Closed'] },
+                  ].map((info) => (
+                    <div key={info.title} className="flex items-start gap-4">
+                      <div className="w-11 h-11 bg-[#7cf8dd]/20 rounded-xl flex items-center justify-center text-[#006b5b] shrink-0">
+                        <span className="material-symbols-outlined">{info.icon}</span>
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-[#707881] uppercase tracking-widest mb-1">{info.title}</p>
+                        {info.lines.map((l, i) => (
+                          <p key={i} className="text-[#111c2d] font-medium">{l}</p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#0077b6] text-white px-6 py-4 rounded-xl font-bold hover:bg-[#005d90] transition-colors shadow-md"
+                >
+                  <span className="material-symbols-outlined">directions</span>
+                  Get Directions
+                </a>
+              </motion.div>
+
+              {/* Map */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={vp}
+                transition={{ duration: 0.5 }}
+                className="rounded-2xl overflow-hidden air-shadow border border-[#d8e3fb] min-h-[360px] relative group"
+              >
+                <iframe
+                  title="Smize Dental Atelier Location"
+                  src="https://maps.google.com/maps?q=Krisala+41+Elite,+Tathawade,+Pune+411033&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: '360px' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                />
+                <a
+                  href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-[#005d90] font-bold text-sm flex items-center gap-1.5 hover:bg-white transition-colors"
+                >
+                  <span className="material-symbols-outlined text-base">open_in_new</span>
+                  Open in Maps
+                </a>
+              </motion.div>
             </div>
           </section>
         </main>

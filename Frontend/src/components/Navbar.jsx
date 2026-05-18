@@ -15,9 +15,7 @@ const navLinks = [
 ]
 
 const extraMobileLinks = [
-  { to: '/pricing', label: 'Pricing' },
   { to: '/insurance', label: 'Insurance' },
-  { to: '/dashboard', label: 'Patient Dashboard' },
 ]
 
 export default function Navbar() {
@@ -60,8 +58,8 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Link to="/" className="flex items-center gap-2">
-            <img src={smizeLogo} alt="Best Dental Clinic In Tathawade pune" className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-cover shadow-sm" />
+          <Link to="/" className="flex items-center gap-2 mt-6">
+            <img src={smizeLogo} alt="Best Dental Clinic In Tathawade pune" className="h-25 w-25 sm:h-25 sm:w-25 md:h-25 md:w-25 rounded-full object-cover shadow-sm" />
           </Link>
         </motion.div>
 
