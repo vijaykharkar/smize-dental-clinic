@@ -111,7 +111,7 @@ export default function EnhancedHomePage() {
   const [tDir, setTDir] = useState(1)
   const [tPaused, setTPaused] = useState(false)
 
-  const nextT = () => { setTDir(1);  setActiveT((p) => (p + 1) % testimonials.length) }
+  const nextT = () => { setTDir(1); setActiveT((p) => (p + 1) % testimonials.length) }
   const prevT = () => { setTDir(-1); setActiveT((p) => (p - 1 + testimonials.length) % testimonials.length) }
   const goToT = (i) => { setTDir(i > activeT ? 1 : -1); setActiveT(i) }
 
@@ -686,9 +686,8 @@ export default function EnhancedHomePage() {
                 <button
                   key={i}
                   onClick={() => goToT(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === activeT ? 'bg-[#005d90] w-7' : 'bg-[#bfc7d1] w-2.5'
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === activeT ? 'bg-[#005d90] w-7' : 'bg-[#bfc7d1] w-2.5'
+                    }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
@@ -758,22 +757,25 @@ export default function EnhancedHomePage() {
               >
                 <iframe
                   title="Smize Dental Atelier Location"
-                  src="https://maps.google.com/maps?q=Krisala+41+Elite,+Tathawade,+Pune+411033&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                  src="https://www.google.com/maps?q=Smize+Dental+Atelier&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: '360px' }}
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full"
                 />
+
                 <a
-                  href="https://maps.app.goo.gl/LWX4fFfwc9XDdwhg9"
+                  href="https://maps.app.goo.gl/L9RyfXCKoTZf9AT6A"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-[#005d90] font-bold text-sm flex items-center gap-1.5 hover:bg-white transition-colors"
                 >
-                  <span className="material-symbols-outlined text-base">open_in_new</span>
+                  <span className="material-symbols-outlined text-base">
+                    open_in_new
+                  </span>
                   Open in Maps
                 </a>
               </motion.div>
