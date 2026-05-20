@@ -120,7 +120,7 @@ export default function GalleryPage() {
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.5 }}
               className="text-lg text-[#4d5b64] max-w-2xl mx-auto"
             >
-              Meet our expert doctors, explore our state-of-the-art clinic &amp; discover beautiful smile transformations.
+              Meet our doctors, explore our state-of-the-art clinic &amp; discover beautiful smile transformations.
             </motion.p>
           </section>
 
