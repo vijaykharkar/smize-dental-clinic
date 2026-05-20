@@ -190,9 +190,9 @@ export default function AboutPage() {
                   spec: 'Root Canal Therapy · Smile Design · Restorative Dentistry',
                   bio: "An MDS-trained Endodontist from Banaras Hindu University, Dr. Kharat blends clinical precision with an artist's eye for aesthetics. Specialising in painless root canals and smile transformations, he approaches every case with meticulous care — ensuring treatments are not just effective, but genuinely comfortable.",
                   stats: [
-                    { value: '10+', label: 'Years Experience' },
-                    { value: '5000+', label: 'Happy Patients' },
-                    { value: '99%', label: 'Success Rate' },
+                    { value: '8+', label: 'Years Experience' },
+                    { value: '2000+', label: 'Happy Patients' },
+                    // { value: '99%', label: 'Success Rate' },
                   ],
                   quals: [
                     { icon: 'school',           text: 'B.D.S. – Govt. Dental College, Sambhajinagar' },
@@ -212,9 +212,9 @@ export default function AboutPage() {
                   spec: 'General Dentistry · Preventive Care',
                   bio: 'Trained at the prestigious Nair Hospital Dental College, Mumbai, Dr. Deepika brings warmth and thoroughness to every consultation. Her expertise in preventive and restorative dentistry ensures patients receive truly holistic care — from routine hygiene to full-mouth rehabilitation — with sensitivity and genuine empathy.',
                   stats: [
-                    { value: '8+', label: 'Years Experience' },
-                    { value: '3000+', label: 'Patients Treated' },
-                    { value: '100%', label: 'Patient Care' },
+                    { value: '3+', label: 'Years Experience' },
+                    { value: '1000+', label: 'Patients Treated' },
+                    // { value: '100%', label: 'Patient Care' },
                   ],
                   quals: [
                     { icon: 'school',           text: 'B.D.S. – Nair Hospital Dental College, Mumbai' },

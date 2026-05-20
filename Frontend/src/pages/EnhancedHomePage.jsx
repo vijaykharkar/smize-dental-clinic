@@ -721,7 +721,7 @@ export default function EnhancedHomePage() {
                   {[
                     { icon: 'location_on', title: 'Address', lines: ['Office No. 101, 1st Floor, C-Wing,', 'Krisala 41 Elite, Jeevan Nagar,', 'Ashok Road, Tathawade – 411033'] },
                     { icon: 'call', title: 'Phone', lines: ['92723 51881', '74472 51881'] },
-                    { icon: 'schedule', title: 'Working Hours', lines: ['Mon – Sat: 10:00 AM – 8:00 PM', 'Sunday: Closed'] },
+                    { icon: 'schedule', title: 'Working Hours', lines: ['Mon – Sun: 10:00 AM – 9:00 PM'] },
                   ].map((info) => (
                     <div key={info.title} className="flex items-start gap-4">
                       <div className="w-11 h-11 bg-[#7cf8dd]/20 rounded-xl flex items-center justify-center text-[#006b5b] shrink-0">
