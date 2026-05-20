@@ -188,9 +188,9 @@ export default function GalleryPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/70 via-[#0a1628]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
                           <span className="material-symbols-outlined text-white text-3xl">zoom_in</span>
                         </div>
-                        <div className="absolute top-4 left-4">
+                        {/* <div className="absolute top-4 left-4">
                           <span className="bg-[#7cf8dd] text-[#005d90] text-xs font-bold px-3 py-1 rounded-full">{doc.qual}</span>
-                        </div>
+                        </div> */}
                       </div>
                       <div className="p-6">
                         <h3 className="text-xl font-bold text-[#111c2d] mb-1">{doc.name}</h3>
