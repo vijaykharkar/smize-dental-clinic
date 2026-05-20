@@ -209,7 +209,7 @@ export default function AboutPage() {
                   tag: 'Dental Surgeon',
                   name: 'Dr. Deepika Waghmare Kharat',
                   qual: 'BDS — Nair Hospital Dental College, Mumbai',
-                  spec: 'General Dentistry · Preventive Care · Cosmetic Restoration',
+                  spec: 'General Dentistry · Preventive Care',
                   bio: 'Trained at the prestigious Nair Hospital Dental College, Mumbai, Dr. Deepika brings warmth and thoroughness to every consultation. Her expertise in preventive and restorative dentistry ensures patients receive truly holistic care — from routine hygiene to full-mouth rehabilitation — with sensitivity and genuine empathy.',
                   stats: [
                     { value: '8+', label: 'Years Experience' },

@@ -27,7 +27,7 @@ export default function WhatsAppButton() {
 
       {/* Get Directions */}
       <motion.a
-        href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+        href="https://maps.app.goo.gl/LWX4fFfwc9XDdwhg9"
         target="_blank"
         rel="noopener noreferrer"
         variants={btnVariants(1.8)}

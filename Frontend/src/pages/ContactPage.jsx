@@ -250,7 +250,7 @@ export default function ContactPage() {
                 <p className="font-bold text-[#005d90] mb-1">Find us here</p>
                 <p className="text-sm text-[#4d5b64]">Krisala 41 Elite, Tathawade, Pune - 411033</p>
                 <a
-                  href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+                  href="https://maps.app.goo.gl/LWX4fFfwc9XDdwhg9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 text-[#006b5b] font-bold text-sm flex items-center gap-1 hover:underline"
