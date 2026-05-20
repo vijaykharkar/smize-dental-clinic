@@ -17,7 +17,7 @@ import drDipika from '../assets/clinic/dipika.jpeg'
 
 const vp = { once: true, margin: '-60px' }
 
-const categories = ['All Photos', 'Clinic Interior', 'Our Team', 'Cosmetic Dentistry', 'Orthodontics', 'Surgical Care']
+const categories = ['All Photos', 'Clinic Interior', 'Our Team']
 
 const galleryImages = [
   /* ── Our Team ── */
