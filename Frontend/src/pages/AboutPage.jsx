@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import PageTransition from '../components/PageTransition'
 import { staggerContainer, staggerItem, slideInLeft, slideInRight, scaleIn } from '../utils/animations'
 import drShubham from '../assets/clinic/shubham.jpeg'
-import drDipika  from '../assets/clinic/dipika.jpeg'
+import drDipika from '../assets/clinic/dipika.jpeg'
 
 const vp = { once: true, margin: '-60px' }
 
@@ -195,10 +195,10 @@ export default function AboutPage() {
                     // { value: '99%', label: 'Success Rate' },
                   ],
                   quals: [
-                    { icon: 'school',           text: 'B.D.S. – Govt. Dental College, Sambhajinagar' },
-                    { icon: 'workspace_premium', text: 'M.D.S. – Banaras Hindu University (BHU)' },
-                    { icon: 'dentistry',         text: 'Root Canal & Smile Design Expert' },
-                    { icon: 'badge',             text: 'Reg. No. A-41636' },
+                    { icon: 'school', text: 'B.D.S. – Govt. Dental College, Sambhajinagar (Govt.)' },
+                    { icon: 'workspace_premium', text: 'M.D.S. – Banaras Hindu University (BHU) (Central Govt.)' },
+                    { icon: 'dentistry', text: 'Root Canal Expert & Cosmetic Dentist' },
+                    { icon: 'badge', text: 'Reg. No. A-41636' },
                   ],
                   flip: false,
                 },
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   accentLight: '#e6faf5',
                   tag: 'Dental Surgeon',
                   name: 'Dr. Deepika Waghmare Kharat',
-                  qual: 'BDS — Nair Hospital Dental College, Mumbai',
+                  qual: 'BDS — Nair Hospital Dental College, Mumbai (Govt.)',
                   spec: 'General Dentistry · Preventive Care',
                   bio: 'Trained at the prestigious Nair Hospital Dental College, Mumbai, Dr. Deepika brings warmth and thoroughness to every consultation. Her expertise in preventive and restorative dentistry ensures patients receive truly holistic care — from routine hygiene to full-mouth rehabilitation — with sensitivity and genuine empathy.',
                   stats: [
@@ -217,10 +217,10 @@ export default function AboutPage() {
                     // { value: '100%', label: 'Patient Care' },
                   ],
                   quals: [
-                    { icon: 'school',           text: 'B.D.S. – Nair Hospital Dental College, Mumbai' },
-                    { icon: 'workspace_premium', text: 'Advanced Cosmetic & Restorative Training' },
-                    { icon: 'dentistry',         text: 'Preventive & General Dentistry' },
-                    { icon: 'badge',             text: 'Reg. No. A-55193' },
+                    { icon: 'school', text: 'B.D.S. – Nair Hospital Dental College, Mumbai (Govt.)' },
+                    { icon: 'workspace_premium', text: 'Dental Surgeon' },
+                    { icon: 'dentistry', text: 'Preventive & General Dentistry' },
+                    { icon: 'badge', text: 'Reg. No. A-55193' },
                   ],
                   flip: true,
                 },
@@ -313,7 +313,7 @@ export default function AboutPage() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 bg-[#e8fdf3] text-[#006b5b] border border-[#7cf8dd] px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#d0f9ea] transition-all"
                         >
-                          <svg className="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                          <svg className="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" /></svg>
                           WhatsApp
                         </a>
                       </div>

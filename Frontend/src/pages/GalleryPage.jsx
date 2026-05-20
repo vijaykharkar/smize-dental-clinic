@@ -167,8 +167,8 @@ export default function GalleryPage() {
                 </motion.h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {[
-                    { src: drShubham, name: 'Dr. Shubham Kharat', qual: 'BDS, MDS', spec: 'Conservative Dentist & Endodontist', exp: '7+ Years Experience' },
-                    { src: drDipika, name: 'Dr. Deepika Waghmare Kharat', qual: 'BDS, MDS', spec: 'Dental Surgeon', exp: '3+ Years Experience' },
+                    { src: drShubham, name: 'Dr. Shubham Kharat', qual: null, spec: 'Conservative Dentist & Endodontist', exp: '7+ Years Experience' },
+                    { src: drDipika, name: 'Dr. Deepika Waghmare Kharat', qual: null, spec: 'Dental Surgeon', exp: '3+ Years Experience' },
                   ].map((doc, i) => (
                     <motion.div
                       key={doc.name}
