@@ -41,37 +41,37 @@ const galleryImages = [
   {
     src: clinicOne,
     tag: 'Clinic Interior',
-    title: 'Reception & Lounge',
+    title: 'Reception',
     span: 'md:col-span-2 md:row-span-2',
   },
   {
     src: clinicTwo,
     tag: 'Clinic Interior',
-    title: 'Treatment Suite',
+    title: 'Reception & Lounge',
     span: 'md:col-span-2 md:row-span-1',
   },
   {
     src: clinicThree,
     tag: 'Clinic Interior',
-    title: 'Consultation Room',
+    title: 'Treatment Suite',
     span: 'md:col-span-1 md:row-span-1',
   },
   {
     src: clinicFour,
     tag: 'Clinic Interior',
-    title: 'Sterilisation Unit',
+    title: 'Patient Comfort Area',
     span: 'md:col-span-1 md:row-span-1',
   },
   {
     src: clinicFive,
     tag: 'Clinic Interior',
-    title: 'Patient Comfort Area',
+    title: 'Dental Chairs',
     span: 'md:col-span-2 md:row-span-1',
   },
   {
     src: clinicSix,
     tag: 'Clinic Interior',
-    title: 'Panoramic X-Ray Suite',
+    title: 'Digital Chair',
     span: 'md:col-span-1 md:row-span-1',
   }
 ]
