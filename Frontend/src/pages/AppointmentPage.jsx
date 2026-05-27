@@ -30,7 +30,7 @@ export default function AppointmentPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!form.fullName || !form.phone || !form.email || !form.date || !form.time || !form.service) {
+    if (!form.fullName || !form.phone || !form.date || !form.time || !form.service) {
       setErrorMsg('Please fill in all required fields.')
       setStatus('error')
       return
