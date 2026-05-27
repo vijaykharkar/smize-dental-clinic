@@ -6,7 +6,6 @@ import smizeLogo from '../assets/smizelogo.jpeg'
 const quickLinks = [
   { to: '/services', label: 'Services' },
   { to: '/about', label: 'Our Team' },
-  { to: '/pricing', label: 'Pricing' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/blog', label: 'Blog' },
   { to: '/faq', label: 'FAQ' },
@@ -69,14 +68,14 @@ export default function Footer() {
               <a href="mailto:smizedentalcare@gmail.com" className="hover:text-sky-700 transition-colors">smizedentalcare@gmail.com</a>
             </li>
           </ul>
-          <div className="mt-4 space-y-2 text-sm">
-            <Link to="/insurance" className="block text-slate-500 hover:text-sky-700 underline underline-offset-4 transition-all">
-              Insurance &amp; Payments
-            </Link>
+          {/* <div className="mt-4 space-y-2 text-sm">
+              <Link to="/insurance" className="block text-slate-500 hover:text-sky-700 underline underline-offset-4 transition-all">
+                Insurance &amp; Payments
+              </Link>
             <Link to="/dashboard" className="block text-slate-500 hover:text-sky-700 underline underline-offset-4 transition-all">
               Patient Portal
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <div>

@@ -66,36 +66,106 @@ const testimonials = [
     role: 'Verified Patient',
     rating: 5,
     text: "I've always been nervous about dental visits, but Smize Dental Atelier made me feel completely comfortable. The team was kind and reassuring, and my new smile has truly boosted my confidence.",
-    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_UbBqmI4PkKFY6XLVQqRj-icRPBG9bMEC7dWu52hxCe_VntY_Riykcf2c0vJgxztXE7LnzA3wqbZxjJk2WFA_68wf2C3KdaaG2-oLstjy5ZhW0-Oqipby_GuZVa2wlWJjdvEh3DnpOmS5NVqTPd938QkLcCuYDI6Wq1YgQubL5hoZQRHydpuRRi1Fcjc61rbHU58mUcta2O2qzQv8TnTH_6T3xJt_OG2O2lMJ2mSizohUqJ2w9Qde_ZCDfX3Jm4s9qxmFfDbiQ0U',
-  },
-  {
-    name: 'Priya Desai',
-    role: 'Smile Makeover Patient',
-    rating: 5,
-    text: "Dr. Kharat's expertise in smile designing is exceptional. My veneers look so natural — family and friends can't stop complimenting me. The attention to detail and the care taken was truly outstanding.",
     avatar: null,
   },
   {
-    name: 'Rahul Sharma',
-    role: 'Root Canal Patient',
+    name: 'Rita Chavan',
+    role: null,
     rating: 5,
-    text: "I was terrified about my root canal, but the procedure was completely painless — finished in a single sitting! Dr. Kharat explained every step clearly. I can't believe how smooth and stress-free it was.",
+    text: "I just had my root canal at smize dental clinic. The procedure was painless. Both doctors were polite and very understanding. Had great experience, must recommended.s",
     avatar: null,
   },
   {
-    name: 'Sneha Patil',
-    role: 'Teeth Whitening Patient',
+    name: 'Mujaffar Patel',
+    role: null,
     rating: 5,
-    text: "The teeth whitening results are incredible — I went several shades lighter in just one session. The clinic is spotlessly clean, ultra-modern, and the staff made me feel so welcome throughout.",
+    text: "The doctor was very kind and genuine service is provided. Clinic was very clean and hygienic. Doctor is very polite and having a great knowledge and experience. Thank you doc.",
     avatar: null,
   },
   {
-    name: 'Amit Kulkarni',
-    role: 'Dental Implant Patient',
+    name: 'Komal Dubile',
+    role: null,
     rating: 5,
-    text: "After losing a tooth, I was hesitant about implants. The team at Smize Dental Atelier walked me through the entire process and the result is completely indistinguishable from my natural teeth.",
+    text: "I have been suffering from my tooth infection since long. I met Dr.Shubham sir and He treated me with Root Canal Treatment. It was painless and everything went very smooth. I think he is the best doctor for teeth and everyone should come here and consult him for their dental problems.Both Dr.Shubham and Dr.Deepika are polite and friendly in nature and provides best treatment.Thank you so much.",
     avatar: null,
   },
+  {
+    name: 'Aishwarya Jaybhaye',
+    role: null,
+    rating: 5,
+    text: "Got my veneers treatment done at Smize Dental Atelier with Dr. Shubham Kharat and Dr. Deepali Waghmare. Extremely happy with the results! The veneers look very natural and perfectly suited my smile. Both doctors were very professional, patient, and explained every step clearly. The clinic atmosphere was modern, clean, and comfortable. Highly recommended for smile makeover and aesthetic dental treatments",
+    avatar: null,
+  },
+  {
+    name: 'Sriniwas Munde',
+    role: null,
+    rating: 5,
+    text: "Recently visited Smize Dental Atelier and was impressed with the modern clinic setup, cleanliness, and hygienic environment. The clinic is aesthetically designed and well equipped with advanced technology. Appreciated the attention to sterilization, patient comfort, and overall workflow. Wishing Dr. Shubham Kharat and Dr. Deepali Waghmare continued success.",
+    avatar: null,
+  },
+  {
+    name: 'Ishwar kanadje',
+    role: null,
+    rating: 5,
+    text: "I had a very good experience at this dental hospital. The Dr. Shubham Kharat is highly skilled, knowledgeable, and explains everything very clearly and patiently. His communication with me and other patients is excellent, which makes the treatment process comfortable and stress-free. The clinic is well-maintained, hygienic, and the staff is also cooperative and professional. You can truly feel the doctors experience and dedication toward patient care. I would highly recommend this place to anyone looking for quality dental treatment.",
+    avatar: null,
+  },
+  {
+    name: 'Aiyman Ayubi',
+    role: null,
+    rating: 5,
+    text: "Had a very comfortable experience at Smize Dental. Dr. Shubham is very skilled and provides the best treatment options",
+    avatar: null,
+  },
+  {
+    name: 'Aditi Heda',
+    role: null,
+    rating: 5,
+    text: "Great dental clinic. Both the doctors are very polite and really good at their job.",
+    avatar: null,
+  },
+  {
+    name: 'Sakshi Kakade',
+    role: null,
+    rating: 5,
+    text: "Usually I don't like dental visits but in this clinic it was very comfortable and didn't feel nervous at all during the treatment.The doctor is really very calm and polite. Would definitely recommend for all your dental issues.",
+    avatar: null,
+  },
+  {
+    name: 'Sonia',
+    role: null,
+    rating: 5,
+    text: "I had an excellent experience during my recent dental visit . Actually, Dr. took the time to Explain the procedure clearly and answered all of my ques. with patience & care. Treatment itself was quick ,efficient & painless which shows the experience & professionalism of Dr. & staff and made my  entire visit stress free. Highly recommended clinic , if anyone looking for quality dental care ,budget friendly and outstanding patient service. Thanku Dr. & entire Smize Dental Atelier staff.",
+    avatar: null,
+  },
+  {
+    name: "Gopal Jadhav",
+    role: null,
+    rating: 5,
+    text: "I visited this dental clinic recently, and the experience was excellent 👌. The doctor was very skilled, polite, and explained everything properly. The hospital/clinic was very clean, well-maintained, and had a professional atmosphere. The treatment charges were also very reasonable compared to the quality of service provided. Highly recommended for anyone looking for good dental care.",
+    avatar: null,
+  },
+  {
+    name: "neha mahalpure",
+    role: null,
+    rating: 5,
+    text: "I have been working with Dr. Shubham for a while now and have experienced that he provides best endodontic treatments like root canal even in most complex cases, so would definitely recommend to visit Dr. Shubham to everyone who is looking for best dental care in Pune..",
+    avatar: null,
+  },
+  {
+    name: "Vaibhav Bhise",
+    role: null,
+    rating: 5,
+    text: "Very good dental services within budget",
+    avatar: null,
+  },
+  {
+    name: "Vikram Singh",
+    role: null,
+    rating: 5,
+    text: "Excellent service ❤️ Dr. is very experienced and polite. Oral health services are of very high quality.",
+    avatar: null,
+  }
 ]
 
 const tVariants = {
@@ -111,7 +181,7 @@ export default function EnhancedHomePage() {
   const [tDir, setTDir] = useState(1)
   const [tPaused, setTPaused] = useState(false)
 
-  const nextT = () => { setTDir(1);  setActiveT((p) => (p + 1) % testimonials.length) }
+  const nextT = () => { setTDir(1); setActiveT((p) => (p + 1) % testimonials.length) }
   const prevT = () => { setTDir(-1); setActiveT((p) => (p - 1 + testimonials.length) % testimonials.length) }
   const goToT = (i) => { setTDir(i > activeT ? 1 : -1); setActiveT(i) }
 
@@ -226,7 +296,7 @@ export default function EnhancedHomePage() {
 
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }}>
                     <a
-                      href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+                      href="https://maps.app.goo.gl/LWX4fFfwc9XDdwhg9"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold hover:bg-white/20 transition-all inline-flex items-center gap-2 text-sm sm:text-base"
@@ -686,9 +756,8 @@ export default function EnhancedHomePage() {
                 <button
                   key={i}
                   onClick={() => goToT(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === activeT ? 'bg-[#005d90] w-7' : 'bg-[#bfc7d1] w-2.5'
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === activeT ? 'bg-[#005d90] w-7' : 'bg-[#bfc7d1] w-2.5'
+                    }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
@@ -722,7 +791,7 @@ export default function EnhancedHomePage() {
                   {[
                     { icon: 'location_on', title: 'Address', lines: ['Office No. 101, 1st Floor, C-Wing,', 'Krisala 41 Elite, Jeevan Nagar,', 'Ashok Road, Tathawade – 411033'] },
                     { icon: 'call', title: 'Phone', lines: ['92723 51881', '74472 51881'] },
-                    { icon: 'schedule', title: 'Working Hours', lines: ['Mon – Sat: 10:00 AM – 8:00 PM', 'Sunday: Closed'] },
+                    { icon: 'schedule', title: 'Working Hours', lines: ['Mon – Sun: 10:00 AM – 9:00 PM'] },
                   ].map((info) => (
                     <div key={info.title} className="flex items-start gap-4">
                       <div className="w-11 h-11 bg-[#7cf8dd]/20 rounded-xl flex items-center justify-center text-[#006b5b] shrink-0">
@@ -738,7 +807,7 @@ export default function EnhancedHomePage() {
                   ))}
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+                  href="https://maps.app.goo.gl/LWX4fFfwc9XDdwhg9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-[#0077b6] text-white px-6 py-4 rounded-xl font-bold hover:bg-[#005d90] transition-colors shadow-md"
@@ -758,22 +827,25 @@ export default function EnhancedHomePage() {
               >
                 <iframe
                   title="Smize Dental Atelier Location"
-                  src="https://maps.google.com/maps?q=Krisala+41+Elite,+Tathawade,+Pune+411033&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                  src="https://www.google.com/maps?q=Smize+Dental+Atelier&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: '360px' }}
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full"
                 />
+
                 <a
-                  href="https://maps.google.com/?q=Krisala+41+Elite+Tathawade+Pune"
+                  href="https://maps.app.goo.gl/L9RyfXCKoTZf9AT6A"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-[#005d90] font-bold text-sm flex items-center gap-1.5 hover:bg-white transition-colors"
                 >
-                  <span className="material-symbols-outlined text-base">open_in_new</span>
+                  <span className="material-symbols-outlined text-base">
+                    open_in_new
+                  </span>
                   Open in Maps
                 </a>
               </motion.div>
